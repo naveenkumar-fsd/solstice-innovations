@@ -98,7 +98,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-lg md:text-xl text-muted-foreground mb-8 max-w-full mx-auto lg:mx-w-2xl px-2"
+                className="text-lg md:text-xl text-muted-foreground mb-8 max-w-full mx-auto lg:mx-w-2xl  px-2"
               >
                 Harness the power of artificial intelligence to optimize your solar energy 
                 production and save up to 90% on electricity bills.
