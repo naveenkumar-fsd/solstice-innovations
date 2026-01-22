@@ -53,15 +53,16 @@ const Index = () => {
   return (
     <PageTransition>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-visible">
         {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
+<div className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-muted/30 to-background" />
+
         
         {/* Decorative Elements */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-4 py-32 relative">
+        <div className="container mx-auto px-4 py-32 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
             <motion.div
@@ -84,7 +85,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 break-words whitespace-normal"
               >
                 Smart Solar Solutions for a{" "}
                 <span className="text-gradient">Sustainable Future</span>
@@ -94,7 +95,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0"
+                className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0 px-2"
               >
                 Harness the power of artificial intelligence to optimize your solar energy 
                 production and save up to 90% on electricity bills.

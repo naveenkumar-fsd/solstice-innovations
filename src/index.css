@@ -4,6 +4,28 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
+
+/* ===== Global safety fixes ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;   /* horizontal scroll avoid */
+}
+
+section {
+  overflow: visible;    /* text cut aagakoodadhu */
+}
+
+/* Prevent text clipping */
+h1, h2, h3, p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
 @layer base {
   :root {
     --background: 150 20% 98%;
