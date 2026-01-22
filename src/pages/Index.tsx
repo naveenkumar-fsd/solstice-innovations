@@ -101,11 +101,11 @@ const Index = () => {
                 production and save up to 90% on electricity bills.
               </motion.p>
 
-              <motion.div
+              <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" 
               >
                 <Link to="/estimator">
                   <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-lg px-8 group">
