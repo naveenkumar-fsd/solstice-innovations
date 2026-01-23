@@ -95,7 +95,8 @@ const Panels = () => {
                 className="group relative bg-card rounded-2xl overflow-hidden border border-border shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 {/* Header with gradient */}
-                <div className={`h-32 bg-gradient-to-br ${panel.color} relative overflow-hidden`}>
+                <div className={`min-h-[8rem] flex items-end bg-gradient-to-br ${panel.color} relative overflow-hidden px-6 pb-4`}>
+
                   <motion.div
                     animate={{ 
                       scale: [1, 1.2, 1],
@@ -106,7 +107,7 @@ const Panels = () => {
                   >
                     <panel.icon className="w-32 h-32 text-white" />
                   </motion.div>
-                  <div className="absolute bottom-4 left-6 z-20 relative">
+                  <div className="relative z-10">
                     <h3 className="font-display text-2xl font-bold text-white relative z-10">
                       {panel.name}
                     </h3>

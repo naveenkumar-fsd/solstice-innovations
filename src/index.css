@@ -173,10 +173,7 @@ button, [role='button'], a, input, textarea, select, [onclick] {
   }
   
   .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background: var(--gradient-solar);
-    position: relative;
-    z-index: 1;
+    color: rgb(11, 125, 3) !important;
   }
   
   .hover-lift {
@@ -218,14 +215,3 @@ button, [role='button'], a, input, textarea, select, [onclick] {
     pointer-events: auto !important;
   }
 }
-
-/* 🔥 FORCE TEXT TO TOP LAYER */
-main, section {
-  overflow: visible !important;
-}
-
-h1, h2, h3, p, span {
-  position: relative !important;
-  z-index: 999 !important;
-}
-
