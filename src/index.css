@@ -218,3 +218,14 @@ button, [role='button'], a, input, textarea, select, [onclick] {
     pointer-events: auto !important;
   }
 }
+
+/* 🔥 FORCE TEXT TO TOP LAYER */
+main, section {
+  overflow: visible !important;
+}
+
+h1, h2, h3, p, span {
+  position: relative !important;
+  z-index: 999 !important;
+}
+

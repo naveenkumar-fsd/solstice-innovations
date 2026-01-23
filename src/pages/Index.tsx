@@ -53,14 +53,9 @@ const Index = () => {
   return (
     <PageTransition>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-isolate">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 -z-10 pointer-events-none bg-gradient-to-b from-background via-muted/30 to-background" />
-
-        
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 -z-10 pointer-events-none w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 -z-10 pointer-events-none w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+      <section className="relative min-h-screen flex items-center">
+         
+         {/* inga paste karo */}
 
         <div className="container mx-auto px-4 py-32 relative z-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
