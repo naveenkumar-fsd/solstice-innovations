@@ -38,8 +38,8 @@ const About = () => {
   return (
     <PageTransition>
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-b from-background to-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="pt-24 pb-16 bg-gradient-to-b from-background to-muted/30 relative">
+        <div className="container mx-auto px-4 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,8 +61,8 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-background relative">
+        <div className="container mx-auto px-4 relative z-20">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -30 }}

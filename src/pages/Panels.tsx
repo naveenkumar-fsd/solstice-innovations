@@ -63,8 +63,8 @@ const getCostBadgeColor = (cost: string) => {
 const Panels = () => {
   return (
     <PageTransition>
-      <section className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background to-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background to-muted/30 relative">
+        <div className="container mx-auto px-4 relative z-20">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -102,12 +102,12 @@ const Panels = () => {
                       rotate: [0, 180, 360]
                     }}
                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                    className="absolute -right-8 -top-8 opacity-20"
+                    className="absolute -right-8 -top-8 opacity-20 pointer-events-none -z-10"
                   >
                     <panel.icon className="w-32 h-32 text-white" />
                   </motion.div>
-                  <div className="absolute bottom-4 left-6">
-                    <h3 className="font-display text-2xl font-bold text-white">
+                  <div className="absolute bottom-4 left-6 z-20 relative">
+                    <h3 className="font-display text-2xl font-bold text-white relative z-10">
                       {panel.name}
                     </h3>
                   </div>

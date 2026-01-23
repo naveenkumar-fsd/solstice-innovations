@@ -55,14 +55,14 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-isolate">
         {/* Background Gradient */}
-<div className="absolute inset-0 -z-0 pointer-events-none bg-gradient-to-b from-background via-muted/30 to-background" />
+        <div className="absolute inset-0 -z-10 pointer-events-none bg-gradient-to-b from-background via-muted/30 to-background" />
 
         
         {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 z-0 pointer-events-none w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 -z-10 pointer-events-none w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 -z-10 pointer-events-none w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-4 py-32 relative z-10">
+        <div className="container mx-auto px-4 py-32 relative z-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
             <motion.div
@@ -159,12 +159,12 @@ const Index = () => {
 
       {/* Stats Section */}
       <section className="py-20 bg-solar-slate relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-secondary rounded-full blur-3xl" />
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary rounded-full blur-3xl -z-10" />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-secondary rounded-full blur-3xl -z-10" />
         </div>
         
-        <div className="container mx-auto px-4 py-32 relative z-10">
+        <div className="container mx-auto px-4 py-32 relative z-20">
           <div className="grid md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <motion.div
@@ -221,10 +221,10 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 solar-gradient opacity-90" />
-        <div className="absolute inset-0 bg-[url('/placeholder.svg')] opacity-5" />
+        <div className="absolute inset-0 -z-10 solar-gradient opacity-90 pointer-events-none" />
+        <div className="absolute inset-0 -z-10 bg-[url('/placeholder.svg')] opacity-5 pointer-events-none" />
         
-        <div className="container mx-auto px-4 relative">
+        <div className="container mx-auto px-4 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -55,8 +55,8 @@ const Contact = () => {
 
   return (
     <PageTransition>
-      <section className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background to-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background to-muted/30 relative">
+        <div className="container mx-auto px-4 relative z-20">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -82,7 +82,7 @@ const Contact = () => {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="lg:col-span-2 space-y-6"
+                className="lg:col-span-2 space-y-6 relative z-20"
               >
                 <div className="bg-solar-slate rounded-2xl p-8 text-primary-foreground">
                   <h2 className="font-display text-xl font-semibold mb-6">Contact Information</h2>

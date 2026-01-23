@@ -18,23 +18,23 @@ const FeatureCard = ({ icon: Icon, title, description, index }: FeatureCardProps
       whileHover={{ y: -8, scale: 1.02 }}
       className="group relative p-6 md:p-8 rounded-2xl bg-card border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300"
     >
-      {/* Gradient Overlay on Hover */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      {/* Gradient Overlay on Hover - MUST NOT COVER TEXT */}
+      <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
       
       {/* Icon Container */}
       <motion.div
         whileHover={{ rotate: [0, -10, 10, 0] }}
         transition={{ duration: 0.5 }}
-        className="relative w-14 h-14 rounded-xl solar-gradient flex items-center justify-center mb-5 group-hover:shadow-lg transition-shadow"
+        className="relative w-14 h-14 rounded-xl solar-gradient flex items-center justify-center mb-5 group-hover:shadow-lg transition-shadow z-10"
       >
         <Icon className="w-7 h-7 text-primary-foreground" />
       </motion.div>
 
-      <h3 className="relative font-display font-semibold text-xl mb-3 text-foreground group-hover:text-primary transition-colors">
+      <h3 className="relative font-display font-semibold text-xl mb-3 text-foreground group-hover:text-primary transition-colors z-10">
         {title}
       </h3>
       
-      <p className="relative text-muted-foreground leading-relaxed">
+      <p className="relative text-muted-foreground leading-relaxed z-10">
         {description}
       </p>
 
@@ -42,7 +42,7 @@ const FeatureCard = ({ icon: Icon, title, description, index }: FeatureCardProps
       <motion.div
         initial={{ scaleX: 0 }}
         whileHover={{ scaleX: 1 }}
-        className="absolute bottom-0 left-6 right-6 h-0.5 bg-gradient-to-r from-primary via-accent to-secondary origin-left"
+        className="absolute bottom-0 left-6 right-6 h-0.5 bg-gradient-to-r from-primary via-accent to-secondary origin-left pointer-events-none -z-10"
       />
     </motion.div>
   );

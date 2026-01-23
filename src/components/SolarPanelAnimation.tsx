@@ -3,7 +3,7 @@ import { Sun } from "lucide-react";
 
 const SolarPanelAnimation = () => {
   return (
-    <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
+    <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden pointer-events-none">
       {/* Sun */}
       <motion.div
         animate={{ 
@@ -14,7 +14,7 @@ const SolarPanelAnimation = () => {
           scale: { duration: 3, repeat: Infinity },
           rotate: { duration: 20, repeat: Infinity, ease: "linear" }
         }}
-        className="absolute top-10 right-10 md:right-20"
+        className="absolute top-10 right-10 md:right-20 -z-10 pointer-events-none"
       >
         <div className="relative">
           <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-solar-amber animate-pulse-glow" />
@@ -33,7 +33,7 @@ const SolarPanelAnimation = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0.2, 0.5, 0.2] }}
           transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
-          className="absolute top-16 right-16 md:top-20 md:right-28 w-32 h-0.5 bg-gradient-to-r from-solar-amber to-transparent origin-left"
+          className="absolute top-16 right-16 md:top-20 md:right-28 w-32 h-0.5 bg-gradient-to-r from-solar-amber to-transparent origin-left -z-10 pointer-events-none"
           style={{ transform: `rotate(${i * 45}deg)` }}
         />
       ))}
@@ -98,7 +98,7 @@ const SolarPanelAnimation = () => {
             delay: i * 0.4,
             ease: "linear"
           }}
-          className="absolute top-32 right-24 md:right-32 w-1 h-8 rounded-full bg-gradient-to-b from-solar-amber to-solar-green"
+          className="absolute top-32 right-24 md:right-32 w-1 h-8 rounded-full bg-gradient-to-b from-solar-amber to-solar-green -z-10 pointer-events-none"
           style={{ left: `${40 + i * 5}%` }}
         />
       ))}

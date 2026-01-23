@@ -82,8 +82,8 @@ const CompareProgress = ({ value, max, label }: { value: number; max: number; la
 const Compare = () => {
   return (
     <PageTransition>
-      <section className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background to-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background to-muted/30 relative">
+        <div className="container mx-auto px-4 relative z-20">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -4,29 +4,46 @@
 @tailwind components;
 @tailwind utilities;
 /* ===== Global safety fixes ===== */
-/* 🔥 FINAL text visibility fix */
-section * {
-  position: relative;
-  z-index: 1;
-}
+/* 🔥 PRODUCTION TEXT VISIBILITY FIX */
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  overflow-x: hidden;   /* horizontal scroll avoid */
+  overflow-x: hidden;
 }
 
 section {
-  overflow: visible;    /* text cut aagakoodadhu */
+  overflow: visible;
+  position: relative;
 }
 
-/* Prevent text clipping */
-h1, h2, h3, p {
+/* Ensure text is ALWAYS visible and interactive */
+h1, h2, h3, h4, h5, h6, p, span, button, a, label, input, textarea {
+  position: relative;
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
+  z-index: auto;
+}
+
+/* CRITICAL: Background decorations must NOT interfere with text */
+section > div:first-child,
+[class*='gradient'],
+[class*='blur'],
+.absolute {
+  pointer-events: none !important;
+}
+
+/* Ensure absolute positioned backgrounds don't block content */
+[class*='inset-0'] {
+  pointer-events: none !important;
+}
+
+/* Allow pointer events on interactive elements */
+button, [role='button'], a, input, textarea, select, [onclick] {
+  pointer-events: auto !important;
 }
 
 @layer base {
@@ -158,6 +175,8 @@ h1, h2, h3, p {
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background: var(--gradient-solar);
+    position: relative;
+    z-index: 1;
   }
   
   .hover-lift {
@@ -166,5 +185,36 @@ h1, h2, h3, p {
   
   .glow-effect {
     box-shadow: var(--shadow-glow);
+    pointer-events: none;
+    position: relative;
+  }
+
+  /* Ensure content doesn't get hidden by overlays */
+  [class*='relative'] > [class*='absolute'] {
+    pointer-events: none;
+  }
+
+  /* Ensure forms and interactive elements are always accessible */
+  input, textarea, select, [type="button"], [type="submit"] {
+    position: relative;
+    z-index: auto;
+    pointer-events: auto !important;
+  }
+
+  /* Ensure all text elements stay on top of backgrounds */
+  h1, h2, h3, h4, h5, h6, p, li, span, strong, em, label {
+    position: relative;
+    z-index: auto;
+  }
+
+  /* Decorative elements MUST NOT block content */
+  [class*='blur'], [class*='gradient'], [class*='animate'], [class*='glow'] {
+    pointer-events: none !important;
+  }
+
+  /* Ensure modals and overlays don't trap focus */
+  [role="dialog"], [role="alertdialog"] {
+    z-index: 999 !important;
+    pointer-events: auto !important;
   }
 }

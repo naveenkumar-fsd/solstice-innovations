@@ -70,8 +70,8 @@ const Estimator = () => {
 
   return (
     <PageTransition>
-      <section className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background to-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background to-muted/30 relative">
+        <div className="container mx-auto px-4 relative z-20">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -97,7 +97,7 @@ const Estimator = () => {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border"
+                className="bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border relative z-20"
               >
                 <h2 className="font-display text-xl font-semibold mb-6 flex items-center gap-2">
                   <Home className="w-5 h-5 text-primary" />
@@ -189,7 +189,7 @@ const Estimator = () => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="relative"
+                className="relative z-20"
               >
                 <AnimatePresence mode="wait">
                   {result ? (
