@@ -38,18 +38,18 @@ const Contact = () => {
       name: formData.name,
       email: formData.email,
       message: formData.message,
-      phone: formData.phone,
     });
 
     setIsSubmitted(true);
     setFormData({ name: "", email: "", phone: "", message: "" });
   } catch (error) {
-    console.error(error);
-    alert("Failed to send message ❌");
+    console.error("Error sending contact message", error);
+    alert("Failed to send message. Check backend.");
   } finally {
     setIsSubmitting(false);
   }
 };
+
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
