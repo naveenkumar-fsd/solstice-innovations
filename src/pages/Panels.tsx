@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Sun, Zap, Clock, DollarSign, Home, Factory, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 
 const panelTypes = [
@@ -167,12 +168,15 @@ const Panels = () => {
                   </ul>
 
                   {/* CTA */}
-                  <Button 
-                    variant="outline" 
-                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                  >
-                    Compare Panels
-                  </Button>
+                  <Link to="/compare">
+  <Button 
+    variant="outline" 
+    className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+  >
+    Compare Panels
+  </Button>
+</Link>
+
                 </div>
               </motion.div>
             ))}
@@ -198,9 +202,12 @@ const Panels = () => {
                   energy needs, and budget. Get a personalized recommendation in minutes.
                 </p>
               </div>
-              <Button className="bg-primary hover:bg-primary/90 flex-shrink-0">
-                Get Recommendation
-              </Button>
+                <Link to="/estimator">
+  <Button className="bg-primary hover:bg-primary/90 flex-shrink-0">
+    Get Recommendation
+  </Button>
+</Link>
+
             </div>
           </motion.div>
         </div>
