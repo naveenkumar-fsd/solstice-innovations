@@ -66,13 +66,13 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "hello@solarai.in",
-      href: "mailto:hello@solarai.in",
+      value: "almifitness79@gmail.com",
+      href: "mailto:almifitness79@gmail.com",
     },
     {
       icon: MapPin,
       label: "Address",
-      value: "123 Green Energy Park, Bangalore, Karnataka 560001",
+      value: "123 Green Energy Park, Chennai, Tamil Nadu 600028",
       href: "#",
     },
   ];
