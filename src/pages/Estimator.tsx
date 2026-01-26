@@ -4,6 +4,7 @@ import { Calculator, Home, Zap, IndianRupee, Calendar, TrendingUp, Sparkles } fr
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { calculateSolarEstimate } from "@/utils/estimator";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import PageTransition from "@/components/PageTransition";
 
@@ -26,47 +27,90 @@ const Estimator = () => {
   const [city, setCity] = useState("");
   const [result, setResult] = useState<EstimateResult | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
+  const [roofWarning, setRoofWarning] = useState<string | null>(null);
 
-  const calculateEstimate = () => {
-    if (!roofSize || !monthlyBill || !city) return;
 
-    setIsCalculating(true);
+  
+
+  //   setIsCalculating(true);
     
-    // Dummy calculation logic
-    setTimeout(() => {
-      const roofSqFt = parseFloat(roofSize);
-      const bill = parseFloat(monthlyBill);
+  //   // Dummy calculation logic
+  //   setTimeout(() => {
+  //     const roofSqFt = parseFloat(roofSize);
+  //     const bill = parseFloat(monthlyBill);
       
-      // 1 kW needs ~100 sq ft
-      const maxCapacity = roofSqFt / 100;
-      // Assume ₹7 per unit, so monthly units = bill/7
-      const monthlyUnits = bill / 7;
-      // 1 kW produces ~120 units/month
-      const requiredCapacity = monthlyUnits / 120;
+  //     // 1 kW needs ~100 sq ft
+  //     const maxCapacity = roofSqFt / 100;
+  //     // Assume ₹7 per unit, so monthly units = bill/7
+  //     const monthlyUnits = bill / 7;
+  //     // 1 kW produces ~120 units/month
+  //     const requiredCapacity = monthlyUnits / 120;
       
-      const solarCapacity = Math.min(maxCapacity, requiredCapacity);
-      const installationCost = solarCapacity * 55000; // ₹55,000 per kW
-      const yearlySavings = solarCapacity * 120 * 12 * 7; // yearly savings
-      const roiYears = installationCost / yearlySavings;
-      const co2Saved = solarCapacity * 1.5; // tonnes per year
+  //     const solarCapacity = Math.min(maxCapacity, requiredCapacity);
+  //     const installationCost = solarCapacity * 55000; // ₹55,000 per kW
+  //     const yearlySavings = solarCapacity * 120 * 12 * 7; // yearly savings
+  //     const roiYears = installationCost / yearlySavings;
+  //     const co2Saved = solarCapacity * 1.5; // tonnes per year
 
-      setResult({
-        solarCapacity: Math.round(solarCapacity * 10) / 10,
-        installationCost: Math.round(installationCost),
-        yearlySavings: Math.round(yearlySavings),
-        roiYears: Math.round(roiYears * 10) / 10,
-        co2Saved: Math.round(co2Saved * 10) / 10,
-      });
-      setIsCalculating(false);
-    }, 1500);
-  };
+  //     setResult({
+  //       solarCapacity: Math.round(solarCapacity * 10) / 10,
+  //       installationCost: Math.round(installationCost),
+  //       yearlySavings: Math.round(yearlySavings),
+  //       roiYears: Math.round(roiYears * 10) / 10,
+  //       co2Saved: Math.round(co2Saved * 10) / 10,
+  //     });
+  //     setIsCalculating(false);
+  //   }, 1500);
+  // };
+      const calculateEstimate = () => {
+  if (!roofSize || !monthlyBill || !city) return;
 
-  const resetForm = () => {
-    setRoofSize("");
-    setMonthlyBill("");
-    setCity("");
+  setIsCalculating(true);
+
+  const roof = Number(roofSize);
+  const bill = Number(monthlyBill);
+
+  const estimate = calculateSolarEstimate({
+    monthlyBill: bill,
+    roofArea: roof,
+  });
+// 🚨 ROOF INSUFFICIENT CHECK — HERE ONLY
+    if (!estimate.feasible) {
+    setRoofWarning(
+      `⚠️ Your roof area is insufficient.
+       You need at least ${estimate.requiredArea} sq.ft
+       for a ${estimate.requiredKW} kW system.`
+    );
     setResult(null);
-  };
+    setIsCalculating(false);
+    return;
+  }
+
+  // ✅ CLEAR WARNING IF OK
+  setRoofWarning(null);
+
+
+  setTimeout(() => {
+    setResult({
+      solarCapacity: estimate.requiredKW,
+      installationCost: estimate.estimatedCost,
+      yearlySavings: estimate.yearlySavings,
+      roiYears: Math.round((estimate.estimatedCost / estimate.yearlySavings) * 10) / 10,
+      co2Saved: Math.round(estimate.requiredKW * 1.5 * 10) / 10,
+    });
+    setIsCalculating(false);
+  }, 800);
+};
+
+
+ const resetForm = () => {
+  setRoofSize("");
+  setMonthlyBill("");
+  setCity("");
+  setResult(null);
+  setRoofWarning(null);
+};
+
 
   return (
     <PageTransition>
@@ -192,6 +236,23 @@ const Estimator = () => {
                 className="relative z-20"
               >
                 <AnimatePresence mode="wait">
+                  {roofWarning && (
+  <motion.div
+    key="roof-warning"
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: 10 }}
+    className="mb-4 bg-destructive/10 border border-destructive/30 text-destructive rounded-xl p-4"
+  >
+    <p className="text-sm font-medium">
+      {roofWarning}
+    </p>
+    <p className="text-xs mt-1 text-destructive/80">
+      💡 Tip: Consider reducing system size or using high-efficiency panels.
+    </p>
+  </motion.div>
+)}
+
                   {result ? (
                     <motion.div
                       key="results"
