@@ -13,6 +13,7 @@ import Compare from "./pages/Compare";
 import Payment from "./pages/Payment";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,10 @@ const App = () => (
                 <Route path="/payment" element={<Payment />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/about" element={<About />} />
+
+                {/* 🔐 ADMIN */}
+  <Route path="/admin" element={<AdminDashboard />} />
+  
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AnimatePresence>
