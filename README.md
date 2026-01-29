@@ -1,73 +1,181 @@
-# Welcome to your Lovable project
+# 🌞 SolarAI – Smart Solar Solutions (Frontend)
 
-## Project info
+A modern, responsive, AI-inspired solar energy website built using **React** and **Tailwind CSS**, designed to showcase solar products, estimate installation costs, compare plans, and engage users with an interactive chatbot experience.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 🚀 Project Overview
 
-There are several ways of editing your application.
+**SolarAI** is a frontend web application for a solar energy company.  
+It helps users understand solar solutions, calculate installation costs, compare solar plans, and interact with a smart chatbot.
 
-**Use Lovable**
+This project is **frontend-focused**, backend-ready, and suitable for real-world business use, client demos, or portfolio showcasing.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ✨ Features
 
-**Use your preferred IDE**
+### 🏠 Home Page
+- Modern hero section with smooth animations
+- Clear call-to-action buttons
+- Responsive design for all devices
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 📊 AI-Powered Solar Estimator
+- Inputs:
+  - Roof area (sq.ft)
+  - Monthly electricity bill
+  - City
+- Outputs:
+  - Recommended system size (kW)
+  - Installation cost
+  - Yearly savings
+  - ROI period
+  - CO₂ reduction
+- Smart roof feasibility check with warning UI
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 🔋 Solar Panels
+- Panel types:
+  - Monocrystalline
+  - Polycrystalline
+  - Thin Film
+- Efficiency, lifespan, and best-use comparison
+- Clean card-based layout
 
-Follow these steps:
+### 📈 Compare Plans
+- Compare different solar system capacities
+- Visual progress indicators
+- Best plan recommendations for homes and businesses
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 💬 Smart Chatbot
+- Floating chatbot available on all pages
+- Theme-matched UI
+- Answers questions about:
+  - Solar cost
+  - Panel types
+  - ROI & savings
+  - Maintenance & warranty
+  - Company & contact details
+- Open / close toggle support
+- Easily extendable to real AI (OpenAI / Gemini)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 📍 Contact Page
+- Embedded Google Map (Chennai location)
+- Professional contact layout
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 🧭 Navigation & UX
+- React Router based navigation
+- Smooth page transitions using Framer Motion
+- Fully responsive (mobile, tablet, desktop)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## 🛠️ Tech Stack
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
+### Frontend
 - React
-- shadcn-ui
+- TypeScript
 - Tailwind CSS
+- Framer Motion
+- React Router DOM
+- Lucide Icons
+- ShadCN UI
 
-## How can I deploy this project?
+### Tools
+- Vite
+- npm
+- Git & GitHub
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 📂 Project Structure
 
-Yes, you can!
+src/
+├── components/
+│ ├── Navbar
+│ ├── Footer
+│ ├── Chatbot
+│ │ ├── Chatbot.tsx
+│ │ ├── ChatbotButton.tsx
+│ │ └── chatbotData.ts
+│ └── UI components
+│
+├── pages/
+│ ├── Index.tsx
+│ ├── Estimator.tsx
+│ ├── Panels.tsx
+│ ├── Compare.tsx
+│ ├── Payment.tsx
+│ ├── Contact.tsx
+│ ├── About.tsx
+│ ├── AdminDashboard.tsx
+│ └── NotFound.tsx
+│
+├── utils/
+│ └── estimator.ts
+│
+├── App.tsx
+├── main.tsx
+└── index.css
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+##🧮 Estimator Logic
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+-Electricity unit rate: ₹6 per unit
+
+-Power generation: 120 units per kW per month
+
+-Roof requirement: 100 sq.ft per kW
+
+-Installation cost: ₹55,000 per kW
+
+-Automatically checks roof feasibility
+
+-Designed to be reusable for backend APIs
+
+---
+
+##Chatbot Details
+
+Rule-based frontend chatbot
+
+No backend dependency
+
+Fast and lightweight
+
+Easily extendable to:
+
+AI APIs (OpenAI / Gemini)
+
+Lead capture (name, phone, city)
+
+Admin dashboard analytics
+
+---
+
+##Design Highlights
+
+Solar-themed color palette (green & amber)
+
+Glassmorphism UI cards
+
+Gradient highlights
+
+Clean typography
+
+Mobile-first responsive design
+
+---
+
+##Future Enhancements
+
+Backend integration (Spring Boot / Node.js)
+
+User authentication
+
+Payment gateway (Razorpay / Stripe)
+
+Government subsidy logic
+
+Multi-location support
+
+Real AI chatbot integration
+
