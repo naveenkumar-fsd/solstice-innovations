@@ -86,8 +86,8 @@ This project is **frontend-focused**, backend-ready, and suitable for real-world
 - Git & GitHub
 
 ---
-
-##🧮 Estimator Logic
+**
+##🧮 Estimator Logic**
 
 -Electricity unit rate: ₹6 per unit
 
@@ -103,7 +103,7 @@ This project is **frontend-focused**, backend-ready, and suitable for real-world
 
 ---
 
-##Chatbot Details
+**##Chatbot Details**
 
 Rule-based frontend chatbot
 
@@ -121,7 +121,7 @@ Admin dashboard analytics
 
 ---
 
-##Design Highlights
+**##Design Highlights**
 
 Solar-themed color palette (green & amber)
 
@@ -135,7 +135,7 @@ Mobile-first responsive design
 
 ---
 
-##Future Enhancements
+**##Future Enhancements**
 
 Backend integration (Spring Boot / Node.js)
 
