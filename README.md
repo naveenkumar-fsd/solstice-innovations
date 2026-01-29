@@ -87,36 +87,6 @@ This project is **frontend-focused**, backend-ready, and suitable for real-world
 
 ---
 
-## 📂 Project Structure
-
-src/
-├── components/
-│ ├── Navbar
-│ ├── Footer
-│ ├── Chatbot
-│ │ ├── Chatbot.tsx
-│ │ ├── ChatbotButton.tsx
-│ │ └── chatbotData.ts
-│ └── UI components
-│
-├── pages/
-│ ├── Index.tsx
-│ ├── Estimator.tsx
-│ ├── Panels.tsx
-│ ├── Compare.tsx
-│ ├── Payment.tsx
-│ ├── Contact.tsx
-│ ├── About.tsx
-│ ├── AdminDashboard.tsx
-│ └── NotFound.tsx
-│
-├── utils/
-│ └── estimator.ts
-│
-├── App.tsx
-├── main.tsx
-└── index.css
-
 ##🧮 Estimator Logic
 
 -Electricity unit rate: ₹6 per unit
@@ -179,3 +149,32 @@ Multi-location support
 
 Real AI chatbot integration
 
+## 📂 Project Structure
+
+src/
+├── components/
+│ ├── Navbar
+│ ├── Footer
+│ ├── Chatbot
+│ │ ├── Chatbot.tsx
+│ │ ├── ChatbotButton.tsx
+│ │ └── chatbotData.ts
+│ └── UI components
+│
+├── pages/
+│ ├── Index.tsx
+│ ├── Estimator.tsx
+│ ├── Panels.tsx
+│ ├── Compare.tsx
+│ ├── Payment.tsx
+│ ├── Contact.tsx
+│ ├── About.tsx
+│ ├── AdminDashboard.tsx
+│ └── NotFound.tsx
+│
+├── utils/
+│ └── estimator.ts
+│
+├── App.tsx
+├── main.tsx
+└── index.css
