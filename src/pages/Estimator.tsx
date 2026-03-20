@@ -191,7 +191,7 @@ const Estimator = () => {
                       <SelectTrigger className="h-12">
                         <SelectValue placeholder="Choose your city" />
                       </SelectTrigger>
-                      <SelectContent className="z-50">
+                      <SelectContent className="z-[9999] pointer-events-auto">
                         {cities.map((c) => (
                           <SelectItem key={c} value={c}>{c}</SelectItem>
                         ))}

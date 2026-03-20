@@ -19,6 +19,12 @@ section {
   position: relative;
 }
 
+/* ✅ FIX dropdown touch issue */
+[data-radix-popper-content-wrapper] {
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+}
+
 /* Ensure text is ALWAYS visible and interactive */
 h1, h2, h3, h4, h5, h6, p, span, button, a, label, input, textarea {
   position: relative;
@@ -28,13 +34,13 @@ h1, h2, h3, h4, h5, h6, p, span, button, a, label, input, textarea {
   z-index: auto;
 }
 
-/* CRITICAL: Background decorations must NOT interfere with text */
-section > div:first-child,
-[class*='gradient'],
-[class*='blur'],
-.absolute {
+/* Only background decorations should ignore clicks */
+.bg-gradient,
+.blur-bg,
+.decorative {
   pointer-events: none !important;
 }
+
 
 /* Ensure absolute positioned backgrounds don't block content */
 [class*='inset-0'] {
